@@ -1,198 +1,34 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Consentimento de Cookies</title>
-  <style>
-    /* Background principal */
-    :root {
-      --accent: #E80070;
-    }
+import { Cookie } from 'lucide-react';
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg, var(--accent) 0%, #ff3a96 100%);
-      color: #fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+function App() {
+  return (
+    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#E80070' }}>
+      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
+        <div className="flex justify-center mb-6">
+          <div className="p-4 rounded-full shadow-lg" style={{ background: 'linear-gradient(to bottom right, #E80070, #C00060)' }}>
+            <Cookie className="w-8 h-8 text-white" />
+          </div>
+        </div>
 
-    .centered {
-      min-height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      box-sizing: border-box;
-    }
+        <h2 className="text-2xl font-bold text-gray-800 text-center mb-4">
+          Política de Cookies
+        </h2>
 
-    .card {
-      background: rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 2rem;
-      max-width: 720px;
-      width: 100%;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+        <p className="text-gray-600 text-center leading-relaxed mb-6">
+          Usamos cookies para melhorar sua experiência de navegação em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade e o uso de cookies.
+        </p>
 
-    h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
-
-    p.lead {
-      margin: 0 0 1.25rem 0;
-      color: rgba(255,255,255,0.95);
-    }
-
-    /* Banner de cookies (fixo) */
-    .cookie-banner {
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 24px;
-      width: calc(100% - 48px);
-      max-width: 920px;
-      background: #ffffff;
-      color: #111;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-      padding: 18px 20px;
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .cookie-banner .text {
-      flex: 1 1 auto;
-      font-size: 0.98rem;
-      line-height: 1.3;
-    }
-
-    .cookie-banner .actions {
-      flex: 0 0 auto;
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    button.btn {
-      appearance: none;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    button.accept {
-      background: linear-gradient(180deg, #0b8f6c 0%, #06724f 100%);
-      color: #fff;
-    }
-
-    button.learn {
-      background: transparent;
-      color: #333;
-      border: 1px solid #ddd;
-    }
-
-    /* Responsividade */
-    @media (max-width:600px){
-      .cookie-banner {
-        flex-direction: column;
-        align-items: stretch;
-        text-align: left;
-      }
-      .cookie-banner .actions {
-        justify-content: flex-end;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="centered">
-    <div class="card" role="main" aria-labelledby="main-title">
-      <h1 id="main-title">Bem-vindo!</h1>
-      <p class="lead">Este é um exemplo simples com o fundo na paleta solicitada. Ao aceitar os cookies você será redirecionado para a próxima página.</p>
-      <p style="opacity:0.9; font-size:0.9rem;">(Se quiser testar múltiplas vezes, limpe os cookies/localStorage do navegador.)</p>
+        <button
+          className="w-full text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+          style={{ background: 'linear-gradient(to right, #E80070, #C00060)' }}
+          onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #C00060, #A00050)'}
+          onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #E80070, #C00060)'}
+        >
+          Aceitar e Continuar
+        </button>
+      </div>
     </div>
-  </div>
+  );
+}
 
-  <!-- Banner de Cookies -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-label="Banner de cookies">
-    <div class="text">
-      Nós usamos cookies para melhorar sua experiência. Ao clicar em "Aceitar cookies" você concorda com o uso.
-    </div>
-    <div class="actions">
-      <button class="btn learn" id="learnBtn" type="button" aria-label="Saber mais">Saber mais</button>
-      <button class="btn accept" id="acceptBtn" type="button" aria-label="Aceitar cookies">Aceitar cookies</button>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const banner = document.getElementById('cookieBanner');
-      const acceptBtn = document.getElementById('acceptBtn');
-      const learnBtn = document.getElementById('learnBtn');
-
-      // Verifica se cookie/localStorage já existe
-      function hasConsent() {
-        // Checa localStorage
-        try {
-          if (localStorage.getItem('cookieAccepted') === '1') return true;
-        } catch (e) { /* acesso bloqueado */ }
-
-        // Checa cookie tradicional
-        return document.cookie.split(';').some(c => c.trim().startsWith('cookieAccepted=1'));
-      }
-
-      // Grava consentimento (cookie + localStorage)
-      function setConsent() {
-        const expires = new Date();
-        expires.setFullYear(expires.getFullYear() + 1); // 1 ano
-        document.cookie = 'cookieAccepted=1; path=/; expires=' + expires.toUTCString() + '; SameSite=Lax';
-        try {
-          localStorage.setItem('cookieAccepted', '1');
-        } catch (e) { /* localStorage pode não estar disponível */ }
-      }
-
-      // Ao aceitar, salvar e redirecionar
-      acceptBtn.addEventListener('click', function () {
-        setConsent();
-        // pequena animação de saída
-        banner.style.transition = 'opacity 250ms ease, transform 250ms ease';
-        banner.style.opacity = '0';
-        banner.style.transform = 'translateY(10px)';
-        // redireciona após animação curta
-        setTimeout(function () {
-          // Redireciona para google.com
-          window.location.href = 'https://google.com';
-        }, 250);
-      });
-
-      // "Saber mais" — apenas um exemplo (poderia abrir uma modal ou página de política)
-      learnBtn.addEventListener('click', function () {
-        alert('Aqui você mostraria sua política de cookies. Neste exemplo simples, vamos apenas informar que ao aceitar o usuário será redirecionado.');
-      });
-
-      // Se já aceitou -> redireciona imediatamente
-      if (hasConsent()) {
-        // opcional: redireciona imediatamente
-        window.location.href = 'https://google.com';
-      } else {
-        // mostra banner
-        banner.style.display = 'flex';
-      }
-    })();
-  </script>
-</body>
-</html>
+export default App;
