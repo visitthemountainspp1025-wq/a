@@ -1,34 +1,123 @@
-import { Cookie } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Cookies</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-function App() {
-  return (
-    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#E80070' }}>
-      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4">
-        <div className="flex justify-center mb-6">
-          <div className="p-4 rounded-full shadow-lg" style={{ background: 'linear-gradient(to bottom right, #E80070, #C00060)' }}>
-            <Cookie className="w-8 h-8 text-white" />
-          </div>
-        </div>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #E80070;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
 
-        <h2 className="text-2xl font-bold text-gray-800 text-center mb-4">
-          Política de Cookies
-        </h2>
+    .container {
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      padding: 2rem;
+      max-width: 28rem;
+      width: 100%;
+    }
 
-        <p className="text-gray-600 text-center leading-relaxed mb-6">
-          Usamos cookies para melhorar sua experiência de navegação em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade e o uso de cookies.
-        </p>
+    .icon-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
 
-        <button
-          className="w-full text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
-          style={{ background: 'linear-gradient(to right, #E80070, #C00060)' }}
-          onMouseEnter={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #C00060, #A00050)'}
-          onMouseLeave={(e) => e.currentTarget.style.background = 'linear-gradient(to right, #E80070, #C00060)'}
-        >
-          Aceitar e Continuar
-        </button>
+    .icon-circle {
+      background: linear-gradient(to bottom right, #E80070, #C00060);
+      padding: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      color: white;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1f2937;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #4b5563;
+      text-align: center;
+      line-height: 1.625;
+      margin-bottom: 1.5rem;
+    }
+
+    .accept-button {
+      width: 100%;
+      background: linear-gradient(to right, #E80070, #C00060);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+
+    .accept-button:hover {
+      background: linear-gradient(to right, #C00060, #A00050);
+      transform: scale(1.02);
+    }
+
+    .accept-button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon-wrapper">
+      <div class="icon-circle">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+          <path d="M8.5 8.5v.01"/>
+          <path d="M16 15.5v.01"/>
+          <path d="M12 12v.01"/>
+          <path d="M11 17v.01"/>
+          <path d="M7 14v.01"/>
+        </svg>
       </div>
     </div>
-  );
-}
 
-export default App;
+    <h2>Política de Cookies</h2>
+
+    <p>
+      Usamos cookies para melhorar sua experiência de navegação em nosso site. Ao continuar navegando, você concorda com nossa política de privacidade e o uso de cookies.
+    </p>
+
+    <button class="accept-button" onclick="acceptCookies()">
+      Aceitar e Continuar
+    </button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      window.location.href = 'https://google.com';
+    }
+  </script>
+</body>
+</html>
